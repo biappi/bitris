@@ -1,0 +1,188 @@
+
+
+
+
+
+
+
+     ¯¯¯     ¯¯¯  ¯¯¯¯¯¯¯¯¯    ¯¯¯¯¯¯¯¯¯
+     ¯¯¯   ¯¯¯  ¯¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯¯                             ¯¯¯¯¯
+     ¯¯¯ ¯¯¯   ¯¯¯          ¯¯¯      ¯¯¯                           ¯¯¯
+     ¯¯¯¯¯    ¯¯¯          ¯¯¯      ¯¯¯                           ¯¯¯   ¯¯¯
+     ¯¯¯     ¯¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯¯¯¯¯                        ¯¯¯¯¯¯   ¯¯¯¯¯¯
+    ¯¯¯     ¯¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯    ¯¯¯   ¯¯¯
+   ¯¯¯     ¯¯¯          ¯¯¯      ¯¯¯  ¯¯¯         ¯¯¯    ¯¯¯   ¯¯¯   ¯¯¯
+  ¯¯¯     ¯¯¯          ¯¯¯      ¯¯¯   ¯¯¯¯¯¯¯¯   ¯¯¯    ¯¯¯   ¯¯¯   ¯¯¯
+ ¯¯¯     ¯¯¯¯¯¯¯¯¯¯¯  ¯¯¯      ¯¯¯         ¯¯¯  ¯¯¯    ¯¯¯   ¯¯¯    ¯¯¯ ¯¯¯
+¯¯¯      ¯¯¯¯¯¯¯¯¯   ¯¯¯      ¯¯¯   ¯¯¯¯¯¯¯¯    ¯¯¯¯¯¯¯¯    ¯¯¯      ¯¯¯¯  <tm>
+
+
+
+
+                           The "Better Games" Series
+
+                              BiTRIS<no_tm> v1.50
+                             The two player Tetris
+
+
+
+               Written by:     Jan Egner & Leo Moll
+               Distributed by: YFTN Aachen, the Utility Masters
+               NodeNumber:     2:242/2
+               Phone:          +49-241-39932
+               SysOps:         Leo Moll - Jan Egner - Martin Koser
+               Filerequest:    From 00:00 To 03:00
+                               From 07:00 To 23:59
+
+
+               Documentation written in Oct 1989 by:
+
+                             Leo Moll
+
+
+      This Documentation:
+      -------------------
+
+      This documentation was written late in the night and I do not want to
+      annoy you with too many words (and I'm too tired to write them.....).
+      Please read it carefully.
+
+
+      1. License
+      ----------
+
+      Feel free to copy and to distribute BiTRIS<no_tm>.  BiTRIS<no_tm>  is
+      SHAREWARE.  We spent a lot of time building this fine program  and so
+      we ask for a little contribution of 10 Marks.  If you are in Germany,
+      please make a "šberweisung" to
+
+               Empf„nger:        Jan Egner
+               KtoNr:            246074
+               BLZ:              390 500 00
+               Bank:             Stadtsparkasse Aachen
+               Verwendungszweck: BiTRIS
+
+      If you are not in Germany, you can pay the contribution simply sending
+      10 Marks or an equivalent sum of money in a closed envelope to
+
+               Jan C. Egner
+               Jakobstrasse 24b
+               D-5100 Aachen
+               West Germany
+
+      If you feel yourself too poor to send 10 Marks, or if you have serious
+      problems sending the money  (cost of sending is higher  than the fee),
+      send us a postcard with a "Thank You!".
+      If you can afford a computer, I think that you can also afford a post-
+      card and a stamp...
+
+      2. Distribution
+      ---------------
+
+      No fee must be charged for copying,  downloading or  distributing this
+      program.  It must be distributed in the original state with all of its
+      files. The original BiTRIS package is contained in a ZIP file called:
+
+                 BTRIS150.ZIP    and it contains the files:
+
+                 BITRIS.DOC     This documentation
+                 BITRIS.EXE     The program
+                 BITRIS.MUZ     The MUZAK file
+                 MERGEHI.EXE    The HiScorefile-merger
+
+      Note for SysOps: Please DO NOT change the contents of BTRIS150.ZIP and
+      DO NOT change  the  compressing  method  unless  a better program than
+      PKZIP (c) will be available.
+
+
+
+
+      3. Playing BiTRIS
+      -----------------
+
+      BiTRIS is a two player Tetris<tm>. If you know how to play Tetris<tm>,
+      you know also how to play BiTRIS<no_tm>. If you don't know how to play
+      Tetris<tm>, please learn it before you try to play BiTRIS<tm>. [GRIN]
+
+      Copy simply all the  BiTRIS<no_tm> files in a subdirectory  and  start
+      the program typing BITRIS followed by a <CR> on the DOS command line.
+      You can start  BiTRIS<no_tm> from any other path.  BiTRIS<no_tm>  will
+      find its BITRIS.MUZ and BITRIS.TTL file in any case.
+
+      You can get help about the key mapping and the game options simply ty-
+      ping H in the BiTRIS<no_tm> MAIN MENU.
+
+
+      4. BiTRIS<no_tm> commandline options.
+      -------------------------------------
+
+      Starting BiTRIS<no_tm>, you can specify some command line options. You
+      can get help about them by typing  BITRIS /HELP  followed by a <CR> on
+      the command line.
+
+      /NOCOLOR    forces BITRIS to use a monochrome color set even if it
+                  encounters a color adapter. This is useful for playing
+                  on some computers with a LCD screen.
+
+      /COLOR      forces BITRIS to use a normal color set even if it en-
+                  counters a monochrome adapter. If you find some appli-
+                  cation for this switch, please contact me. [GRIN]
+
+      /PL:Name_1  This two options are useful to set a default  for  the
+      /PR:Name_2  hiscore. If you make a hiscore,  you  will be prompted
+                  for the name of the left and right player.  Setting  a
+                  default, you need only to confirm by hitting the  <CR>
+                  key. In the command line,  spaces in the names MUST be 
+                  replaced by underscores.
+
+      /M:OFF      Defaults Muzak OFF
+
+      /M:<muzak_file>  If you have an alternate Muzak-File, you can spe-
+                       cify it here. Muzak-Files are compiled by MUZCOMP
+                       YEAsoft's MUZak compiler. You can get it from us.
+
+      /G:nn       Specifies a default for the garbage level.  This value
+                  can be from 1 to 15
+
+      /L:nnn      Specifies a starting level other than 200.  The  level
+                  can be from 0 to 400
+
+      /H:<hiscorefile>  Specifies an alternate HiScorefile. This is use-
+                        ful if you want to  administrate  separate  high
+                        scorefiles. It's your own responsibility to give
+                        a correct filename.  If the file does not exist,
+                        BiTRIS<no_tm> will try to create it.
+
+
+
+
+      5. The program MERGEHI
+      ----------------------
+
+      With MERGEHI you can merge 2 HiScorefiles into one. This is useful
+      to create a HiScorefile of a  little group of people interested in
+      playing BiTRIS or for a BiTRIS Contest.
+      If you have two or more HiScorefiles, you can merge two of them in
+      a new one typing:
+
+            MERGEHI <first_file> <second_file> <new_hiscore_file>
+
+      In this way you can create a Hiscorefile with the hiscores of all
+      of your friends.
+
+
+      6. The first GERMAN BITRIS OPEN
+      -------------------------------
+
+      The First German BITRIS OPEN will start at
+
+            October 27, 1989
+
+      Please contact YFTN Aachen (242/2) or Y(EA & LoCOS)FTN 2 Paderborn
+      (242/25) for further informations.
+
+      You are all invited...... [GRIN]
+
+
+                               Have fun!
+
