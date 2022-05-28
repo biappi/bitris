@@ -1070,9 +1070,11 @@ BEGIN
   Muzak             := Muzak AND FileExist(MuzakFileName);
   Separate          := TRUE;
   AddQuads          := TRUE;
+  {$IFDEF DEAD}
   IF (CPUtype < 2) AND (ApproxMHZ < 6) THEN
     SpeedDelay := 3
   ELSE
+  {$ENDIF}
     SpeedDelay := 4;
   OldNumLock        := IsNumLock;
   OldCapsLock       := IsCapsLock;
