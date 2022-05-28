@@ -36,7 +36,7 @@ IMPLEMENTATION
 CONST
   MonatsTage  : ARRAY[FALSE..TRUE,1..12] OF BYTE = ((31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31),
                                                     (31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31));
-  MonatsNamen : ARRAY[1..12] OF STRING[15] = ('Januar', 'Februar', 'MÑrz',
+  MonatsNamen : ARRAY[1..12] OF STRING[15] = ('Januar', 'Februar', 'M√§rz',
                                               'April', 'Mai', 'Juni',
                                               'Juli', 'August', 'September',
                                               'Oktober', 'November', 'Dezember');
@@ -53,8 +53,8 @@ PROCEDURE DateErr(ErrCode : BYTE; Dte : DATUM);
 BEGIN
   CASE ErrCode OF
   1 : WriteLn(#7,'Nicht interpretierbares Datum '+Dte);
-  2 : WriteLn(#7,'UngÅltiges Datum '+Dte);
-  3 : WriteLn(#7,'UngÅltige Tageszahl.');
+  2 : WriteLn(#7,'Ung√ºltiges Datum '+Dte);
+  3 : WriteLn(#7,'Ung√ºltige Tageszahl.');
   ELSE
     WriteLn(#7,'Undefined error.');
   END;

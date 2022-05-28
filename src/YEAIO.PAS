@@ -87,13 +87,13 @@ END;
 
 PROCEDURE NormBox(X1, Y1, X2, Y2 : BYTE);
 BEGIN
-  Box(X1, Y1, X2, Y2, 'им╦Ёыдс╨');
+  Box(X1, Y1, X2, Y2, 'Б∙■Б∙░Б∙∙Б■┌Б■≤Б■─Б∙≥Б∙▒');
 END;
 
 PROCEDURE BoxLine(X1, X2, Y : BYTE);
 BEGIN
   GotoXY(X1, Y);
-  Write('г' + Replicate('д', X2 - X1 - 1) + '╢');
+  Write('Б∙÷' + Replicate('Б■─', X2 - X1 - 1) + 'Б■╓');
 END;
 
 PROCEDURE Wait;

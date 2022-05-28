@@ -22,7 +22,7 @@ CONST
   GarbageBonus : ARRAY [0..15] OF BYTE =
                  (0, 1, 1, 2, 3, 4, 6, 9, 13, 17, 22, 27, 33, 40, 48, 60);
 
-  MBox         : ARRAY [0..3] OF CHAR = ('°','±','²','Û');
+  MBox         : ARRAY [0..3] OF CHAR = ('â–‘','â–’','â–“','â–ˆ');
 
 
 VAR
@@ -214,7 +214,7 @@ TYPE
   BlahType = ARRAY [0..3] OF CHAR;
 
 CONST
-  Box          : ARRAY [BOOLEAN] OF CHAR = (' ', 'Û');
+  Box          : ARRAY [BOOLEAN] OF CHAR = (' ', 'â–ˆ');
 
 VAR
   i : BYTE;
@@ -361,9 +361,9 @@ BEGIN
      (ActBrick^ [160] = ' ') OR
      (byte (ActBrick^ [161]) AND 16 = 0) THEN
     Exit;
-  ActBrick^ [0] := 'Û';
+  ActBrick^ [0] := 'â–ˆ';
   ActBrick^ [1] := char (128+48+5);
-  ActBrick^ [2] := 'Û';
+  ActBrick^ [2] := 'â–ˆ';
   ActBrick^ [3] := char (128+48+5);
   Sound (2000);
   Delay (10);
@@ -473,9 +473,9 @@ BEGIN
         IF NOT Mono THEN
         BEGIN
           i := 49 + Random (7);
-          ActBrick^ [0] := 'Û';
+          ActBrick^ [0] := 'â–ˆ';
           ActBrick^ [1] := char (i);
-          ActBrick^ [2] := 'Û';
+          ActBrick^ [2] := 'â–ˆ';
           ActBrick^ [3] := char (i)
         END
         ELSE
@@ -572,7 +572,7 @@ BEGIN
         ScreenBuffer := ScreenPtr^;
         AlteFarbe := TextAttr;
         TextAttr  := PausingWindow[1];
-        Box(16, 10, 65, 15, 'ÕÍ¸³¾ÍÔ³');
+        Box(16, 10, 65, 15, 'â•’â•â••â”‚â•›â•â•˜â”‚');
         TextAttr  := PausingWindow[2];
         WriteAT (30, 12, 'G A M E    P A U S E D');
         TextAttr  := PausingWindow[3];
@@ -643,7 +643,7 @@ BEGIN
   UNTIL GameOver[1] AND GameOver[2];
   SetMuzak(OFF);
   TextAttr  := PausingWindow[1];
-  Box(28, 11, 53, 15, 'ÕÍ¸³¾ÍÔ³');
+  Box(28, 11, 53, 15, 'â•’â•â••â”‚â•›â•â•˜â”‚');
   TextAttr  := PausingWindow[2];
   WriteAT (32, 13, 'G A M E    O V E R');
   FOR i := 1000 DOWNTO 25 DO
@@ -725,9 +725,9 @@ BEGIN
   WriteAT(15, 6,'***** BITRIS<tm> -- Hall of Fame: The TOP 100 *****');
   WriteAT( 3,21,'Use cursor keys or PgUp/PgDn to scroll. [ESC] returns to MAIN MENU.');
   TextAttr := HighScoreWindow[1];;
-  WriteAT( 1, 7, 'ÌÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍµ');
-  WriteAT( 1, 9, 'ÇÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄ´');
-  WriteAT( 1,20, 'ÇÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄ´');
+  WriteAT( 1, 7, 'â• â•â•â•â•â•¤â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•¤â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•¤â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•¤â•â•â•â•â•â•â•â•â•¡');
+  WriteAT( 1, 9, 'â•Ÿâ”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”¤');
+  WriteAT( 1,20, 'â•Ÿâ”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”¤');
   Separe(8);
   FOR Counter := 10 TO 19 DO
     Separe(Counter);
@@ -793,7 +793,7 @@ BEGIN
       PackTime (dt, HighScore[i].Datum);
       TextAttr := NewHighScore[1];
       NormBox (16, 7, 65, 18);
-      Box(23, 8, 57, 10, 'ÚÄ¿³ÙÄÀ³');
+      Box(23, 8, 57, 10, 'â”Œâ”€â”â”‚â”˜â”€â””â”‚');
       TextAttr := NewHighScore[2];
       WriteAT (25, 9, 'C O N G R A T U L A T I O N S !');
       IF i=1 THEN
@@ -902,21 +902,21 @@ BEGIN
   Wait;
   Window(1, 1, 80, 25);
   ScreenPtr^ := ScreenBuffer^;
-  WriteAT(10, 5,'ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»');
-  WriteAT(10, 6,'º BiTRIS<no_tm> is a two_player_Tetris<tm>. Here the KeyMapping: º');
-  WriteAT(10, 7,'ÇÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¶');
-  WriteAT(10, 8,'º LEFT PLAYER ³            function               ³ RIGHT PLAYER º');
-  WriteAT(10, 9,'ÇÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¶');
-  WriteAT(10,10,'º    [F]      ³    shift brick to the left ('+#27+')    ³      [4]     º');
-  WriteAT(10,11,'º    [H]      ³    shift brick to the right ('+#26+')   ³      [6]     º');
-  WriteAT(10,12,'º    [G]      ³     rotate brick clockwise ('+#11+')    ³      [5]     º');
-  WriteAT(10,13,'º [TAB]|[SPC] ³           drop brick ('+#31+')          ³ [ENTER]|[0]  º');
-  WriteAT(10,14,'ÇÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¶');
-  WriteAT(10,15,'º [ESC] pauses the game. Resume with any other key except [ESC]  º');
-  WriteAT(10,16,'º [ESC][ESC] terminates the game.                                º');
-  WriteAT(10,17,'º                                                                º');
-  WriteAT(10,18,'º Hit the [ANYKEY] to return to the MAIN MENU.....               º');
-  WriteAT(10,19,'ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼');
+  WriteAT(10, 5,'â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—');
+  WriteAT(10, 6,'â•‘ BiTRIS<no_tm> is a two_player_Tetris<tm>. Here the KeyMapping: â•‘');
+  WriteAT(10, 7,'â•Ÿâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¢');
+  WriteAT(10, 8,'â•‘ LEFT PLAYER â”‚            function               â”‚ RIGHT PLAYER â•‘');
+  WriteAT(10, 9,'â•Ÿâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¢');
+  WriteAT(10,10,'â•‘    [F]      â”‚    shift brick to the left ('+#27+')    â”‚      [4]     â•‘');
+  WriteAT(10,11,'â•‘    [H]      â”‚    shift brick to the right ('+#26+')   â”‚      [6]     â•‘');
+  WriteAT(10,12,'â•‘    [G]      â”‚     rotate brick clockwise ('+#11+')    â”‚      [5]     â•‘');
+  WriteAT(10,13,'â•‘ [TAB]|[SPC] â”‚           drop brick ('+#31+')          â”‚ [ENTER]|[0]  â•‘');
+  WriteAT(10,14,'â•Ÿâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¢');
+  WriteAT(10,15,'â•‘ [ESC] pauses the game. Resume with any other key except [ESC]  â•‘');
+  WriteAT(10,16,'â•‘ [ESC][ESC] terminates the game.                                â•‘');
+  WriteAT(10,17,'â•‘                                                                â•‘');
+  WriteAT(10,18,'â•‘ Hit the [ANYKEY] to return to the MAIN MENU.....               â•‘');
+  WriteAT(10,19,'â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
   GotoXY(61,18);
   Wait;
   ScreenPtr^ := ScreenBuffer^;

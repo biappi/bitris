@@ -86,7 +86,7 @@ BEGIN                        {What would you expect this to do?}
   Write('Remember: ');
   HighVideo;
   WriteLn(Copy(PRGauthor, 1, Pos(',', PRGauthor)-1));
-  WriteLn('          Zieglerstera·e 11');
+  WriteLn('          Zieglerstera√üe 11');
   WriteLn('          D-5100 Aachen');
   WriteLn('          West Germany');
   WriteLn;
@@ -224,7 +224,7 @@ BEGIN
 END;
 
 BEGIN
-  Version        := '0.00·test';
+  Version        := '0.00√ütest';
   License        := 'MILITANTLY PUBLIC DOMAIN!';
   Release        := '01.01.1980';
   PRGname        := 'NONAME';
