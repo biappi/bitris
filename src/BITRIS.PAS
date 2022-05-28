@@ -22,7 +22,7 @@ CONST
   GarbageBonus : ARRAY [0..15] OF BYTE =
                  (0, 1, 1, 2, 3, 4, 6, 9, 13, 17, 22, 27, 33, 40, 48, 60);
 
-  MBox         : ARRAY [0..3] OF CHAR = ('░','▒','▓','█');
+  MBox         : ARRAY [0..3] OF UNICODECHAR = ('░','▒','▓','█');
 
 
 VAR
@@ -214,7 +214,7 @@ TYPE
   BlahType = ARRAY [0..3] OF CHAR;
 
 CONST
-  Box          : ARRAY [BOOLEAN] OF CHAR = (' ', '█');
+  Box          : ARRAY [BOOLEAN] OF UNICODECHAR = (' ', '█');
 
 VAR
   i : BYTE;
