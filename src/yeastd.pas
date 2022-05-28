@@ -131,7 +131,7 @@ FUNCTION  Replicate(Origin : CHAR; HowMany : BYTE) : STRING;
 VAR
   Dummy : STRING;
 BEGIN
-  Dummy[0] := Chr(HowMany);
+  SetLength(Dummy, HowMany);
   FillChar (Dummy[1], HowMany, Origin);
   Replicate := Dummy;
 END;
@@ -139,7 +139,7 @@ END;
 FUNCTION  Space(Anzahl : BYTE) : STRING;
 VAR Dummy : STRING;
 BEGIN
-  Dummy[0] := Chr(Anzahl);
+  SetLength(Dummy, Anzahl);
   FillChar (Dummy[1], Anzahl, #32);
   Space := Dummy
 END;
@@ -148,7 +148,7 @@ FUNCTION  CenterNorm(Rein : STRING; Laenge : BYTE) : STRING;
 VAR
   Dummy : STRING;
 BEGIN
-  Dummy[0] := Char(Laenge);
+  SetLength(Dummy, Laenge);
   FillChar (Dummy[1], Laenge, #32);
   IF Length(Rein) <= Laenge THEN
     Move(Rein[1], Dummy[(Laenge - Length(Rein)) DIV 2], Length(Rein));
@@ -190,7 +190,7 @@ VAR
 BEGIN
   FillChar (Raus[1], Laenge, ' ');
   Raus := Rein;
-  Raus [0] := char (Laenge);
+  SetLength(Raus, Laenge);
   SNorm := Raus
 END;
 
@@ -287,7 +287,7 @@ END;
 PROCEDURE StripBackSlash (VAR PATH_NAME : STRING);
 BEGIN
   IF PATH_NAME[Length (PATH_NAME)] = '\' THEN
-    Dec(PATH_NAME[0]);
+    SetLength(PATH_NAME, Length(PATH_NAME) - 1);
 END;
 
 FUNCTION  SBSL(PATH_NAME : STRING) : STRING;
@@ -367,8 +367,8 @@ VAR
   BufferStr : STRING;
 BEGIN
   Move(String2Conv, BufferStr[1], 255);
-  BufferStr[0] := #255;
-  BufferStr[0] := Chr(Pos (#0, BufferStr) - 1);
+  SetLength(BufferStr, 255);
+  SetLength(BufferStr, Pos (#0, BufferStr) - 1);
   C2S := BufferStr;
 END;
 
@@ -426,7 +426,7 @@ FUNCTION Hex(Irgendwas : WORD) : STRING;
 VAR   Buffer : STRING[4];
 CONST HexArr : ARRAY[0..$F] OF CHAR = ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
 BEGIN
-  Buffer[0] := #4;
+  SetLength(Buffer, 4);
   Buffer[1] := HexArr[((Irgendwas SHR 12) AND $0F)];
   Buffer[2] := HexArr[((Irgendwas SHR  8) AND $0F)];
   Buffer[3] := HexArr[((Irgendwas SHR  4) AND $0F)];
