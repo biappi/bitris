@@ -39,8 +39,13 @@ USES YEASTD, DOS, STDIO;
 USES YEASTD, DOS, CRT;
 
 VAR
+  {$IFDEF DEAD}
   CGAScreen      : ScreenType ABSOLUTE $B800:0000;
   MDAScreen      : ScreenType ABSOLUTE $B000:0000;
+  {$ELSE}
+  CGAScreen      : ScreenType;
+  MDAScreen      : ScreenType;
+  {$ENDIF}
 {$ENDIF}
 
 PROCEDURE Comment (X,Y : BYTE; CommText : STRING);
@@ -308,6 +313,7 @@ END;
 
 {$IFNDEF STDIO}
 
+{$IFDEF DEAD}
 FUNCTION  IsColor : BOOLEAN;
 VAR Regs : REGISTERS;
 BEGIN
@@ -336,6 +342,19 @@ BEGIN
     Regs.CX := $0B0C;
   Intr ($10, Regs)
 END;
+{$ELSE}
+FUNCTION  IsColor : BOOLEAN;
+BEGIN
+END;
+
+PROCEDURE HideCursor;
+BEGIN
+END;
+
+PROCEDURE ShowCursor;
+BEGIN
+END;
+{$ENDIF}
 
 {$ENDIF}
 

@@ -92,8 +92,13 @@ IMPLEMENTATION
 VAR
   FileFound      : SearchRec;
 {$IFNDEF STDIO}
+  {$IFDEF DEAD}
   CGAScreen      : ScreenType ABSOLUTE $B800:0000;
   MDAScreen      : ScreenType ABSOLUTE $B000:0000;
+  {$ELSE}
+  CGAScreen      : ScreenType;
+  MDAScreen      : ScreenType;
+  {$ENDIF}
 {$ENDIF}
 
 FUNCTION LoCase(ch : CHAR) : CHAR;
@@ -429,6 +434,7 @@ BEGIN
   Hex := Buffer;
 END;
 
+{$IFDEF DEAD}
 FUNCTION  IsColor : BOOLEAN;
 VAR Regs : REGISTERS;
 BEGIN
@@ -436,6 +442,12 @@ BEGIN
   Intr($10, Regs);
   IsColor := (Regs.al <> 7);
 END;
+{$ELSE}
+FUNCTION  IsColor : BOOLEAN;
+BEGIN
+  IsColor := False;
+END;
+{$ENDIF}
 
 FUNCTION  TestDelay : BOOLEAN;
 VAR
@@ -454,6 +466,7 @@ BEGIN
     TestDelay := TRUE;
 END;
 
+{$IFDEF DEAD}
 FUNCTION IsNumLock : BOOLEAN;
 BEGIN
   IsNumLock := ((MEM[$0000:$0417] AND 32) <> 0);
@@ -533,6 +546,50 @@ BEGIN
   Regs.AH := $0C;
   MsDOS(Regs);
 END;
+{$ELSE}
+FUNCTION IsNumLock : BOOLEAN;
+BEGIN
+  IsNumLock := False
+END;
+
+PROCEDURE SetNumLock(How : BOOLEAN);
+BEGIN
+END;
+
+PROCEDURE SwapNumLock;
+BEGIN
+END;
+
+FUNCTION IsCapsLock : BOOLEAN;
+BEGIN
+  IsCapsLock := False
+END;
+
+PROCEDURE SetCapsLock(How : BOOLEAN);
+BEGIN
+END;
+
+PROCEDURE SwapCapsLock;
+BEGIN
+END;
+
+FUNCTION IsScrollLock : BOOLEAN;
+BEGIN
+  IsScrollLock := False
+END;
+
+PROCEDURE SetScrollLock(How : BOOLEAN);
+BEGIN
+END;
+
+PROCEDURE SwapScrollLock;
+BEGIN
+END;
+
+PROCEDURE ClearKeyBuffer;
+BEGIN
+END;
+{$ENDIF}
 
 FUNCTION  StringIIF(Condition : BOOLEAN; S1, S2 : STRING) : STRING;
 BEGIN

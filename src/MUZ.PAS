@@ -487,10 +487,14 @@ BEGIN
       {$IFNDEF MUZCOMP}
       ResetMuzak;
       {$ENDIF}
+
+      {$IFDEF DEAD}
       Inline($FA);
       GetIntVec($1C, OldTickVec);
       SetIntVec($1C, @PlayMuzak);
       Inline($FB);
+      {$ENDIF}
+
     END;
     {$IFDEF MUZCOMP}
     Comment(9,4, 'LINKED  ');
@@ -500,9 +504,11 @@ BEGIN
   BEGIN
     IF OldTickVec <> NIL THEN
     BEGIN
+      {$IFDEF DEAD}
       Inline($FA);
       SetIntVec($1C, OldTickVec);
       Inline($FB);
+      {$ENDIF}
       OldTickVec := NIL;
     END;
     {$IFDEF MUZCOMP}

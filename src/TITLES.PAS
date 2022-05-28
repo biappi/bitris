@@ -58,6 +58,14 @@ CONST
   ON  = TRUE;
   OFF = FALSE;
 
+{$IFNDEF DEAD}
+PROCEDURE SetTextColor(c1 : BYTE; c2 : BYTE);
+BEGIN
+  TextColor(c1);
+  TextBackground(c2);
+END;
+{$ENDIF}
+
 PROCEDURE CopyRight;
 BEGIN                        {Displays the "Copyright" of this program}
   ClrScr;

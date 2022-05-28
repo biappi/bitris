@@ -49,7 +49,9 @@ BEGIN
       END;
       FOR K := 400 DOWNTO 81 DO
       BEGIN
+        {$IFDEF DEAD}
         Dec (K);
+        {$ENDIF}
         Sound (K);
         Delay (1)
       END;

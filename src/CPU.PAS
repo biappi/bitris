@@ -35,6 +35,7 @@ FUNCTION CheckCPU: INTEGER;
 VAR
   CPU: INTEGER;
 BEGIN
+{$IFDEF DEAD}
   InLine (
           $DB/$E3/                  {  FINIT  }
           $C7/$86/CPU/$FF/$FF/      {  MOV     Word Ptr [BP+CPU],FFFF  }
@@ -53,12 +54,14 @@ BEGIN
           $43/                      {  INC     BX  }
 {Lab1:}   $88/$9E/CPU               {  MOV     [BP+CPU],BL  }
          );
+{$ENDIF}
   CheckCPU := CPU; {Lo: 0-'86; 1-'186; 2-'286; 3-'386  Hi<>$FF-'87}
 END;
 
 FUNCTION CPUtype : BYTE;
 
 BEGIN     { Maschinensprache-Routine zur Bestimmung des Prozessor-Typs }
+{$IFDEF DEAD}
  InLine(
         $9C/$51/$52/$57/$56/$06/$33/$C0/$50/$9D/$9C/$58/$25/$00/
         $F0/$3D/$00/$F0/$74/$13/$B2/$06/$B8/$00/$70/$50/$9D/$9C/
@@ -69,6 +72,7 @@ BEGIN     { Maschinensprache-Routine zur Bestimmung des Prozessor-Typs }
         $90/$42/$90/$FB/$88/$56/$FF/$07/$5E/$5F/$5A/$59/$9D/$EB/
         $07/$90/$5F/$83/$C7/$09/$EB/$E4
        );
+{$ENDIF}
 END;
 
 FUNCTION FPUpresent : BOOLEAN;
