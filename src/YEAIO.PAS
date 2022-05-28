@@ -136,7 +136,7 @@ BEGIN
                   END;
                 END;
       #1..#3  : ;                                   {Strip some Garbage}
-      ^D      : IF AktX < X + Length(Eingabe) THEN  {CTRL-D Right}
+      #4      : IF AktX < X + Length(Eingabe) THEN  {CTRL-D Right}
                   Inc(AktX);
       #5..#7  : ;
       #8      : IF AktX > X THEN                    {BackSpace}
@@ -148,15 +148,19 @@ BEGIN
 
       #13     : ;                       {Do you want a CR in your String????}
 
-      ^S      : IF AktX > X THEN                    {CTRL-S Left}
+      #14..#17: ;                                  {Strip some other Garbage}
+
+      #18     : IF AktX > X THEN                    {CTRL-S Left}
                   Dec(AktX);
+      #19..#21: ;                                  {Strip some other Garbage}
       #22     : INS_Modus := NOT INS_Modus;         {CTRL-V Ins}
+      #23..#24: ;                                  {Strip some other Garbage}
       #25     : BEGIN                               {CTRL-Y Kill Line}
                   AktX := X;
                   Eingabe := '';
                   WriteAT(X,Y, Space(Len));
                 END;
-      #14..#31: ;                                  {Strip some other Garbage}
+      #26..#31: ;                                  {Strip some other Garbage}
     ELSE                                                    {All otheChars}
     BEGIN
       IF (Len > Length(Eingabe)) OR (AktX < X+Len) THEN
@@ -208,7 +212,7 @@ BEGIN
                   END;
                 END;
       #1..#3  : ;                                   {Strip some Garbage}
-      ^D      : IF AktX < X + Length(Eingabe) THEN  {CTRL-D Right}
+      #4      : IF AktX < X + Length(Eingabe) THEN  {CTRL-D Right}
                   Inc(AktX);
       #5..#7  : ;
       #8      : IF AktX > X THEN                    {BackSpace}
@@ -220,15 +224,17 @@ BEGIN
 
       #13     : ;                       {Do you want a CR in your String????}
 
-      ^S      : IF AktX > X THEN                    {CTRL-S Left}
+      #14..#17: ;                                   {Strip some other Garbage}
+      #18     : IF AktX > X THEN                    {CTRL-S Left}
                   Dec(AktX);
+      #19..#21: ;                                   {Strip some other Garbage}
       #22     : INS_Modus := NOT INS_Modus;         {CTRL-V Ins}
       #25     : BEGIN                               {CTRL-Y Kill Line}
                   AktX := X;
                   Eingabe := '';
                   WriteAT(X,Y, Space(Len));
                 END;
-      #14..#26: ;                                  {Strip some other Garbage}
+      #26     : ;                                  {Strip some other Garbage}
       #27     : Eingabe := '';
       #28..#47: ;
       #58..#255:;
